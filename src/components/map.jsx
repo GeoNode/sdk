@@ -18,6 +18,8 @@ import Overlay from 'ol/overlay';
 import Proj from 'ol/proj';
 import Coordinate from 'ol/coordinate';
 
+import Control from 'ol/control/control';
+
 import TileLayer from 'ol/layer/tile';
 import XyzSource from 'ol/source/xyz';
 import TileJSON from 'ol/source/tilejson';
@@ -238,10 +240,26 @@ export class Map extends React.Component {
     this.configureSprites(this.props.map);
   }
 
+  addButton(buttonOptions){
+    var button = document.createElement('button');
+    button.innerHTML = buttonOptions.text;
+
+    var element = document.createElement('div');
+    element.className = buttonOptions.parentClass;
+    element.appendChild(button);
+
+    const control = new Control({element:element});
+    this.map.addControl(control);
+  }
   /** This will check nextProps and nextState to see
    *  what needs to be updated on the map.
    */
+
   shouldComponentUpdate(nextProps) {
+    //TODO: consider refactoring - only a proof
+    if(nextProps.map.buttonOptions){
+      this.addButton(nextProps.map.buttonOptions)
+    }
     // compare the centers
     if (nextProps.map.center[0] !== this.props.map.center[0]
       || nextProps.map.center[1] !== this.props.map.center[1]

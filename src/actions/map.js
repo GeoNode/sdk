@@ -192,3 +192,13 @@ export function updateMetadata(metadata) {
     metadata,
   };
 }
+
+/**
+ * Test
+ */
+export function addButton(buttonOptions) {
+  return {
+    type: MAP.ADD_BUTTON,
+    buttonOptions,
+  };
+}

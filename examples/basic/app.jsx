@@ -258,6 +258,14 @@ function main() {
       minzoom: 2,
     }));
   };
+  // Updates minzoom level on Null Island layer.
+  const addButton = () => {
+    var buttonOptions = {
+      text:'test button',
+      parentClass: 'test-button'
+    }
+    store.dispatch(mapActions.addButton(buttonOptions));
+  };
 
   // place the map on the page.
   ReactDOM.render(<SdkMap store={store} />, document.getElementById('map'));
@@ -269,6 +277,7 @@ function main() {
       <button className="sdk-btn" onClick={addRandomPoints}>Add 10 random points</button>
       <button className="sdk-btn blue" onClick={removeRandomPoints}>Remove random points</button>
       <button className="sdk-btn" onClick={updateMinzoom}>Update Min Zoom</button>
+      <button className="sdk-btn" onClick={addButton}>Add Button</button>
       <InputField />
     </div>
   ), document.getElementById('controls'));

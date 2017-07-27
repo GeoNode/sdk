@@ -362,6 +362,13 @@ function updateMetadata(state, action) {
     metadata: Object.assign({}, state.metadata, action.metadata),
   });
 }
+/** Add a button to the map
+ */
+function addButton(state, action) {
+  return Object.assign({}, state, {
+    buttonOptions: Object.assign({}, state.buttonOptions, action.buttonOptions),
+  });
+}
 
 /** Main reducer.
  */
@@ -399,6 +406,8 @@ export default function MapReducer(state = defaultState, action) {
       return clusterPoints(state, action);
     case MAP.SET_METADATA:
       return updateMetadata(state, action);
+    case MAP.ADD_BUTTON:
+      return addButton(state, action);
     default:
       return state;
   }
