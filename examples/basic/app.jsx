@@ -260,11 +260,10 @@ function main() {
   };
   // Updates minzoom level on Null Island layer.
   const addButton = () => {
-    var buttonOptions = {
-      text:'test button',
-      parentClass: 'test-button'
-    }
-    store.dispatch(mapActions.addButton(buttonOptions));
+    store.dispatch(mapActions.addButton({
+      text:'T',
+      parentClass: 'ol-control test-button'
+    }));
   };
 
   // place the map on the page.
