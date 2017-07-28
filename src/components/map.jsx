@@ -241,13 +241,13 @@ export class Map extends React.Component {
   }
 
   addButton(buttonOptions){
-    // var button = document.createElement('button');
-    // button.innerHTML = buttonOptions.text;
+    var button = document.createElement(buttonOptions.htmlElement);
+    button.className = buttonOptions.elementClass;
+    button.innerHTML = buttonOptions.text;
 
-    //var element = document.createElement('div');
-    var element = document.createElement(buttonOptions.htmlElement);
-    element.className = buttonOptions.parentClass;
-    // element.appendChild(button);
+    var element = document.createElement('div');
+    element.className = "ol-control";
+    element.appendChild(button);
 
 
     const control = new Control({element:element});

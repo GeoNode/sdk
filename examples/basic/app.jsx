@@ -262,7 +262,7 @@ function main() {
   const addButton = () => {
     store.dispatch(mapActions.addButton({
       text:'T',
-      parentClass: 'ol-control test-button fa fa-rocket',
+      elementClass: 'fa fa-rocket',
       htmlElement : "i"
     }));
   };
