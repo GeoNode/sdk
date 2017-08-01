@@ -241,14 +241,18 @@ export class Map extends React.Component {
   }
 
   addButton(buttonOptions){
-    var button = document.createElement(buttonOptions.htmlElement);
-    button.className = buttonOptions.elementClass;
-    button.innerHTML = buttonOptions.text;
+
+    var innerElement = document.createElement(buttonOptions.htmlElement);
+    innerElement.className = buttonOptions.elementClass || '';
+    innerElement.innerText = buttonOptions.text;
+
+    var button = document.createElement('button');
+    button.className = buttonOptions.buttonClass || '';
+    button.appendChild(innerElement);
 
     var element = document.createElement('div');
-    element.className = "ol-control";
+    element.className = buttonOptions.containerClass || '';
     element.appendChild(button);
-
 
     const control = new Control({element:element});
     this.map.addControl(control);
